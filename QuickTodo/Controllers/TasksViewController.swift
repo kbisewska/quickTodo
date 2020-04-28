@@ -87,5 +87,12 @@ class TasksViewController: UIViewController, BindableType {
       }
       .subscribe(viewModel.deleteAction.inputs)
       .disposed(by: self.rx.disposeBag)
+    
+    viewModel.statistics
+      .subscribe(onNext: { [weak self] stats in
+        let total = stats.todo + stats.done
+        self?.statisticsLabel.text = "\(total) tasks, \(stats.todo) due."
+      })
+      .disposed(by: self.rx.disposeBag)
   }
 }

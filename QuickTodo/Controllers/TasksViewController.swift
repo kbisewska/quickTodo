@@ -80,5 +80,12 @@ class TasksViewController: UIViewController, BindableType {
       }
       .bind(to: viewModel.editAction.inputs)
       .disposed(by: self.rx.disposeBag)
+    
+    tableView.rx.itemDeleted
+      .map { [unowned self] indexPath in
+        try! self.tableView.rx.model(at: indexPath)
+      }
+      .subscribe(viewModel.deleteAction.inputs)
+      .disposed(by: self.rx.disposeBag)
   }
 }

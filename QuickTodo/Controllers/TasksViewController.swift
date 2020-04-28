@@ -68,5 +68,7 @@ class TasksViewController: UIViewController, BindableType {
     viewModel.sectionedItems
       .bind(to: tableView.rx.items(dataSource: dataSource))
       .disposed(by: self.rx.disposeBag)
+    
+    newTaskButton.rx.action = viewModel.onCreateTask()
   }
 }

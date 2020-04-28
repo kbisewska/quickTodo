@@ -55,6 +55,15 @@ struct TasksViewModel {
         ]
     }
   }
+  
+  lazy var editAction: Action<TaskItem, Swift.Never> = { this in
+    return Action { task in
+      let editViewModel = EditTaskViewModel(task: task, coordinator: this.sceneCoordinator, updateAction: this.onUpdateTitle(task: task))
+      return this.sceneCoordinator
+        .transition(to: Scene.editTask(editViewModel), type: .modal)
+        .asObservable()
+    }
+  }(self)
 
   init(taskService: TaskServiceType, coordinator: SceneCoordinatorType) {
     self.taskService = taskService

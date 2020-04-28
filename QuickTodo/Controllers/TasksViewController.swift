@@ -48,6 +48,7 @@ class TasksViewController: UIViewController, BindableType {
     tableView.estimatedRowHeight = 60
     
     configureDataSource()
+    setEditing(true, animated: false)
   }
   
   private func configureDataSource() {
@@ -61,7 +62,8 @@ class TasksViewController: UIViewController, BindableType {
       },
       titleForHeaderInSection: { dataSource, index in
         dataSource.sectionModels[index].model
-      })
+      },
+      canEditRowAtIndexPath: { _, _ in true })
   }
   
   func bindViewModel() {

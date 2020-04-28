@@ -13,7 +13,6 @@
 		3D932B0A1E4D245600E4BC3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D932B091E4D245600E4BC3D /* Assets.xcassets */; };
 		3D932B0D1E4D245600E4BC3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D932B0B1E4D245600E4BC3D /* LaunchScreen.storyboard */; };
 		8F4333CE245830FD00714B95 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8F4333CD245830FD00714B95 /* RxSwift */; };
-		8F4333D0245830FD00714B95 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 8F4333CF245830FD00714B95 /* RxTest */; };
 		8F4333D2245830FD00714B95 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 8F4333D1245830FD00714B95 /* RxRelay */; };
 		8F4333D4245830FD00714B95 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 8F4333D3245830FD00714B95 /* RxCocoa */; };
 		8F4333D6245830FD00714B95 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 8F4333D5245830FD00714B95 /* RxBlocking */; };
@@ -21,6 +20,8 @@
 		8F4333DC245832D500714B95 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 8F4333DB245832D500714B95 /* RxDataSources */; };
 		8F4333DF2458345300714B95 /* Action in Frameworks */ = {isa = PBXBuildFile; productRef = 8F4333DE2458345300714B95 /* Action */; };
 		8F4333E22458347A00714B95 /* NSObject-Rx in Frameworks */ = {isa = PBXBuildFile; productRef = 8F4333E12458347A00714B95 /* NSObject-Rx */; };
+		8F4333E42458638300714B95 /* PushedEditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4333E32458638300714B95 /* PushedEditTaskViewController.swift */; };
+		8F4333E62458638A00714B95 /* PushedEditTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4333E52458638A00714B95 /* PushedEditTaskViewModel.swift */; };
 		D8D4B084216A9B2C450E606F /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D4B40D0383E56BA2D62F95 /* Scene.swift */; };
 		D8D4B29BEEE5F90B2EEFD433 /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D4B9842A4352B148BF885E /* TasksViewModel.swift */; };
 		D8D4B38B0D79DD3BCEE7424A /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D4B0622FCB80BA64F522B8 /* TaskItem.swift */; };
@@ -45,6 +46,8 @@
 		3D932B091E4D245600E4BC3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D932B0C1E4D245600E4BC3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D932B0E1E4D245600E4BC3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F4333E32458638300714B95 /* PushedEditTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushedEditTaskViewController.swift; sourceTree = "<group>"; };
+		8F4333E52458638A00714B95 /* PushedEditTaskViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushedEditTaskViewModel.swift; sourceTree = "<group>"; };
 		D8D4B0622FCB80BA64F522B8 /* TaskItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskItem.swift; sourceTree = "<group>"; };
 		D8D4B40D0383E56BA2D62F95 /* Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		D8D4B5E9DE757713868B0E95 /* TasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
@@ -68,7 +71,6 @@
 			files = (
 				8F4333D92458316300714B95 /* RxRealm in Frameworks */,
 				8F4333D2245830FD00714B95 /* RxRelay in Frameworks */,
-				8F4333D0245830FD00714B95 /* RxTest in Frameworks */,
 				8F4333D4245830FD00714B95 /* RxCocoa in Frameworks */,
 				8F4333E22458347A00714B95 /* NSObject-Rx in Frameworks */,
 				8F4333DF2458345300714B95 /* Action in Frameworks */,
@@ -144,6 +146,8 @@
 				D8D4B5E9DE757713868B0E95 /* TasksViewController.swift */,
 				D8D4B669B9E5D5F0A890C14A /* EditTaskViewModel.swift */,
 				D8D4BC91C06633B3679DD8E7 /* EditTaskViewController.swift */,
+				8F4333E32458638300714B95 /* PushedEditTaskViewController.swift */,
+				8F4333E52458638A00714B95 /* PushedEditTaskViewModel.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -192,7 +196,6 @@
 			name = QuickTodo;
 			packageProductDependencies = (
 				8F4333CD245830FD00714B95 /* RxSwift */,
-				8F4333CF245830FD00714B95 /* RxTest */,
 				8F4333D1245830FD00714B95 /* RxRelay */,
 				8F4333D3245830FD00714B95 /* RxCocoa */,
 				8F4333D5245830FD00714B95 /* RxBlocking */,
@@ -267,8 +270,10 @@
 			files = (
 				3D932B031E4D245600E4BC3D /* AppDelegate.swift in Sources */,
 				D8D4B38B0D79DD3BCEE7424A /* TaskItem.swift in Sources */,
+				8F4333E62458638A00714B95 /* PushedEditTaskViewModel.swift in Sources */,
 				D8D4BE38CFBD47278990836B /* TaskServiceType.swift in Sources */,
 				3D2E844A1E4E7A3D0075B16B /* BindableType.swift in Sources */,
+				8F4333E42458638300714B95 /* PushedEditTaskViewController.swift in Sources */,
 				D8D4BCFC41706D2948B976E9 /* TaskService.swift in Sources */,
 				D8D4B29BEEE5F90B2EEFD433 /* TasksViewModel.swift in Sources */,
 				D8D4B6D94E7B54B9C1F34CBD /* TasksViewController.swift in Sources */,
@@ -355,6 +360,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -407,6 +413,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -519,11 +526,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8F4333CC245830FD00714B95 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
-		};
-		8F4333CF245830FD00714B95 /* RxTest */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8F4333CC245830FD00714B95 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxTest;
 		};
 		8F4333D1245830FD00714B95 /* RxRelay */ = {
 			isa = XCSwiftPackageProductDependency;

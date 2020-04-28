@@ -27,32 +27,27 @@
 /// THE SOFTWARE.
 
 import UIKit
+import RxSwift
+import RxCocoa
+import Action
+import NSObject_Rx
 
-extension Scene {
+class PushedEditTaskViewController: UIViewController, BindableType {
   
-  func viewController() -> UIViewController {
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    
-    switch self {
-    case .tasks(let viewModel):
-      let navigationController = storyboard.instantiateViewController(withIdentifier: "Tasks") as! UINavigationController
-      var viewController = navigationController.viewControllers.first as! TasksViewController
-      viewController.bindViewModel(to: viewModel)
-      
-      return navigationController
-      
-    case .editTask(let viewModel):
-      let navigationController = storyboard.instantiateViewController(withIdentifier: "EditTask") as! UINavigationController
-      var viewController = navigationController.viewControllers.first as! EditTaskViewController
-      viewController.bindViewModel(to: viewModel)
-      
-      return navigationController
-      
-    case .pushedEditTask(let viewModel):
-      var viewController = storyboard.instantiateViewController(withIdentifier: "PushedEditTask") as! PushedEditTaskViewController
-      viewController.bindViewModel(to: viewModel)
-      
-      return viewController
-    }
+  @IBOutlet var titleView: UITextView!
+  
+  var viewModel: PushedEditTaskViewModel!
+  
+  func bindViewModel() {
+    titleView.text = viewModel.itemTitle
+    titleView.rx.text
+      .orEmpty
+      .bind(to: viewModel.onUpdate.inputs.asObserver())
+      .disposed(by: self.rx.disposeBag)
+  }
+
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    titleView.becomeFirstResponder()
   }
 }

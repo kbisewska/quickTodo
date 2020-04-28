@@ -26,33 +26,18 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import UIKit
+import Foundation
+import RxSwift
+import Action
 
-extension Scene {
+struct PushedEditTaskViewModel {
   
-  func viewController() -> UIViewController {
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    
-    switch self {
-    case .tasks(let viewModel):
-      let navigationController = storyboard.instantiateViewController(withIdentifier: "Tasks") as! UINavigationController
-      var viewController = navigationController.viewControllers.first as! TasksViewController
-      viewController.bindViewModel(to: viewModel)
-      
-      return navigationController
-      
-    case .editTask(let viewModel):
-      let navigationController = storyboard.instantiateViewController(withIdentifier: "EditTask") as! UINavigationController
-      var viewController = navigationController.viewControllers.first as! EditTaskViewController
-      viewController.bindViewModel(to: viewModel)
-      
-      return navigationController
-      
-    case .pushedEditTask(let viewModel):
-      var viewController = storyboard.instantiateViewController(withIdentifier: "PushedEditTask") as! PushedEditTaskViewController
-      viewController.bindViewModel(to: viewModel)
-      
-      return viewController
-    }
+  let itemTitle: String
+  let onUpdate: Action<String, Void>
+  let disposeBag = DisposeBag()
+  
+  init(task: TaskItem, coordinator: SceneCoordinatorType, updateAction: Action<String, Void>) {
+    itemTitle = task.title
+    onUpdate = updateAction
   }
 }

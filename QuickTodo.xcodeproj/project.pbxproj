@@ -217,6 +217,7 @@
 				TargetAttributes = {
 					3D932AFE1E4D245600E4BC3D = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -427,7 +428,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.QuickTodo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -443,7 +444,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.QuickTodo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
